@@ -51,7 +51,7 @@ gmx mdrun -v -deffnm md
 # correct trajectory:
 echo 1 | gmx trjconv -f md.xtc -s md.tpr -pbc nojump -o md_nojump.xtc
 echo 1 | gmx trjconv -f md.xtc -s md.tpr -pbc mol -o md_center.xtc
-echo 1 | gmx trjconv -f md.xtc -s md.tpr -pbc mol -fit rot+trans -o md_fitted.xtc
+echo 1 1 | gmx trjconv -f md_center.xtc -s md.tpr -fit rot+trans -o md_fitted.xtc
 
 # Ramachandran plot:
 gmx rama -f md.xtc -s md.tpr -xvg none -o phi_psi.xvg
